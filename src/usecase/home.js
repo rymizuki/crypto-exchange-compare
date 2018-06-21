@@ -1,6 +1,3 @@
-import fetch from 'node-fetch'
-global.fetch = fetch // XXX: for cryptocompare
-
 import cryptoCompare from 'cryptocompare'
 
 import {

@@ -1,5 +1,5 @@
-import { createStore } from 'redux'
-import reducers from './reducers'
+import { applyMiddleware, compose } from 'redux'
+import * as asyncInitialState from 'redux-async-initial-state'
 
 const menus = [
   {
@@ -27,6 +27,11 @@ const initialState = {
   },
 }
 
-const store = createStore(reducers, initialState)
+async function initialize() {
+  return new Promise(resolve => resolve(initialState))
+}
 
-export default store
+export default compose(applyMiddleware(
+  asyncInitialState.middleware(initialize)
+))
+

@@ -1,3 +1,7 @@
+export function startApp () {
+  return { type: 'APP_START' }
+}
+
 export function changeMenu (menu) {
   return { type: 'CHANGE_MENU', menu }
 }
